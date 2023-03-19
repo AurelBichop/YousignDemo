@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>CONTRAT DE LOCATION</h1>
+
+        Entre les soussignés :
+        <ul>
+            <li>le propriétaire, Aurélien ci-après dénommé le "le propriétaire"</li>
+            <li>le locataire, {{ contrat.prenom }} {{contrat.nom}} ci-après dénommé le "le locataire</li>
+        </ul>
+        
+        Il est convenue et arrêté ce qui suit :
+        <ul>
+            <li>1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem voluptatum beatae, debitis veniam illum facilis nesciunt sapiente voluptatem necessitatibus excepturi? Suscipit nihil quibusdam cupiditate dolore voluptates dolorum praesentium officiis! Optio!</li>
+            <li>2. à la date du {{contrat.dateDebut|date('d/m/Y')}}</li>
+            <li>3.la caution est de {{contrat.caution}}</li>
+            <li>4. le loyer est de {{contrat.loyer}}</li>
+            <li>5. Prendra fin à la date du {{contrat.dateFin|date('d/m/Y')}}</li>
+        </ul>
+    </body>
+</html>

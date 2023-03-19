@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contrat index{% endblock %}
+
+{% block body %}
+    <h1>Contrat index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Mail</th>
+                <th>DateDebut</th>
+                <th>DateFin</th>
+                <th>Loyer</th>
+                <th>Caution</th>
+                <th>SignatureId</th>
+                <th>DocumentId</th>
+                <th>SignerId</th>
+                <th>PdfSansSignature</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contrat in contrats %}
+            <tr>
+                <td>{{ contrat.id }}</td>
+                <td>{{ contrat.nom }}</td>
+                <td>{{ contrat.prenom }}</td>
+                <td>{{ contrat.mail }}</td>
+                <td>{{ contrat.dateDebut ? contrat.dateDebut|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ contrat.dateFin ? contrat.dateFin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ contrat.loyer }}</td>
+                <td>{{ contrat.caution }}</td>
+                <td>{{ contrat.signatureId }}</td>
+                <td>{{ contrat.documentId }}</td>
+                <td>{{ contrat.signerId }}</td>
+                <td>{{ contrat.pdfSansSignature }}</td>
+                <td>
+                    <a href="{{ path('app_contrat_pdf', {'id': contrat.id}) }}">Pdf</a>
+                    <a href="{{ path('app_contrat_show', {'id': contrat.id}) }}">show</a>
+                    <a href="{{ path('app_contrat_edit', {'id': contrat.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_contrat_new') }}">Create new</a>
+{% endblock %}

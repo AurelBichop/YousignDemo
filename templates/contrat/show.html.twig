@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contrat{% endblock %}
+
+{% block body %}
+    <h1>Contrat</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contrat.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ contrat.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ contrat.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ contrat.mail }}</td>
+            </tr>
+            <tr>
+                <th>DateDebut</th>
+                <td>{{ contrat.dateDebut ? contrat.dateDebut|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateFin</th>
+                <td>{{ contrat.dateFin ? contrat.dateFin|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Loyer</th>
+                <td>{{ contrat.loyer }}</td>
+            </tr>
+            <tr>
+                <th>Caution</th>
+                <td>{{ contrat.caution }}</td>
+            </tr>
+            <tr>
+                <th>SignatureId</th>
+                <td>{{ contrat.signatureId }}</td>
+            </tr>
+            <tr>
+                <th>DocumentId</th>
+                <td>{{ contrat.documentId }}</td>
+            </tr>
+            <tr>
+                <th>SignerId</th>
+                <td>{{ contrat.signerId }}</td>
+            </tr>
+            <tr>
+                <th>PdfSansSignature</th>
+                <td>{{ contrat.pdfSansSignature }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <a role="button" href="{{ path('app_contrat_signature', {'id': contrat.id}) }}">Envoyer pour la signature</a>
+    </div>
+
+    <a href="{{ path('app_contrat_index') }}">back to list</a>
+
+    <a href="{{ path('app_contrat_edit', {'id': contrat.id}) }}">edit</a>
+
+    {{ include('contrat/_delete_form.html.twig') }}
+{% endblock %}
